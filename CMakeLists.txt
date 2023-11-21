@@ -16,6 +16,7 @@ set(TS_FILES ArmyChess_zh_TW.ts)
 
 add_executable(ArmyChess
   main.cpp
+  readme.md
   ${TS_FILES}
 )
 target_link_libraries(ArmyChess Qt${QT_VERSION_MAJOR}::Core)

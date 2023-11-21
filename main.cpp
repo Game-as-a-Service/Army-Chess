@@ -4,8 +4,7 @@
 #include <QLocale>
 #include <QTranslator>
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
 
     QTranslator translator;
@@ -17,6 +16,8 @@ int main(int argc, char *argv[])
             break;
         }
     }
+
+    qDebug() << "hello world";
 
     return a.exec();
 }

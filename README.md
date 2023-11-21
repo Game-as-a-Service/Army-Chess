@@ -1,13 +1,20 @@
-( * : 為團隊需自行修改部分 )
-# *Gaas-repo-template ( 換成自己遊戲名稱 )
+# 陸軍棋 ( Army Chess )
 
 # Intro your game
 
+# How to execute a project
 
 # My Practice Stack
-- 描述一下你們使用的軟體方法論 :
-   1. *...
+1. 事件風暴
+2. example maaping
+3. 物件導向分析
+4. 乾淨架構
+5. 領域驅動設計
+6. ATDD\TDD
+7. DevOps
 
 ### Tech Stack
-- 描述一下你們使用的技術、框架、語言 :
-   1. *...
+1. framework：Qt C++
+2. web api：QHttpServer
+3. Database：PostgreSQL
+4. test tool：Google Test
