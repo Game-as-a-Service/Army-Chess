@@ -14,10 +14,17 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core LinguistTools)
 
 set(TS_FILES ArmyChess_zh_TW.ts)
 
+file(GLOB_RECURSE HFILES "*.h")
+file(GLOB_RECURSE HPPFILES "*.hpp")
+file(GLOB_RECURSE CPPFILES "*.cpp")
+
 add_executable(ArmyChess
-  main.cpp
-  readme.md
-  ${TS_FILES}
+    ${HFILES}
+    ${HPPFILES}
+    ${CPPFILES}
+
+    ${TS_FILES}
+    readme.md
 )
 target_link_libraries(ArmyChess Qt${QT_VERSION_MAJOR}::Core)
 
