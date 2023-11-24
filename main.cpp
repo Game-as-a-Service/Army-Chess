@@ -1,4 +1,5 @@
-
+#define ARMYCHESSTEST
+#ifndef ARMYCHESSTEST
 #include <QCoreApplication>
 
 #include <QLocale>
@@ -21,3 +22,14 @@ int main(int argc, char *argv[]) {
 
     return a.exec();
 }
+#else
+
+#include <gtest/gtest.h>
+
+int main(int argc, char *argv[])
+{
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
+
+#endif
