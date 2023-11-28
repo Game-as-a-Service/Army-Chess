@@ -1,9 +1,11 @@
-#define ARMYCHESSTEST
+// #define ARMYCHESSTEST
 #ifndef ARMYCHESSTEST
 #include <QCoreApplication>
 
 #include <QLocale>
 #include <QTranslator>
+#include "src/main/framework/ArmyChessController.hpp"
+
 
 int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
@@ -18,7 +20,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    qDebug() << "hello world";
+    ArmyChessController controller;
 
     return a.exec();
 }

@@ -1,7 +1,7 @@
 #include <gmock/gmock-matchers.h>
 #include <gtest/gtest.h>
 
-#include "../src/sum.hpp"
+#include "../main/sum.hpp"
 
 TEST(FIRSTTEST, SUMTEST){
     int a = 10;
