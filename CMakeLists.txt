@@ -9,17 +9,48 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core LinguistTools)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core LinguistTools)
+include(FetchContent)
+
+FetchContent_Declare(
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG v1.14.0
+)
+
+FetchContent_MakeAvailable(googletest)
+
+
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS
+    Core
+    LinguistTools
+)
+
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
+    Core
+    LinguistTools
+)
 
 set(TS_FILES ArmyChess_zh_TW.ts)
 
-add_executable(ArmyChess
-  main.cpp
-  readme.md
-  ${TS_FILES}
+file(GLOB_RECURSE HPPFILES "*.hpp")
+file(GLOB_RECURSE CPPFILES "*.cpp")
+file(GLOB_RECURSE MARKDOWNFILES "*.md")
+
+add_executable( ArmyChess
+    ${HPPFILES}
+    ${CPPFILES}
+    ${MARKDOWNFILES}
+    ${TS_FILES}
 )
-target_link_libraries(ArmyChess Qt${QT_VERSION_MAJOR}::Core)
+
+target_link_libraries( ArmyChess
+    Qt${QT_VERSION_MAJOR}::Core
+    gtest
+    gtest_main
+    gmock_main
+)
+
+add_test(NAME ArmyChess COMMAND ArmyChess)
 
 if(COMMAND qt_create_translation)
     qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
