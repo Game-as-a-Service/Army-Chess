@@ -23,11 +23,13 @@ FetchContent_MakeAvailable(googletest)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS
     Core
     LinguistTools
+    HttpServer
 )
 
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
     Core
     LinguistTools
+    HttpServer
 )
 
 set(TS_FILES ArmyChess_zh_TW.ts)
@@ -45,6 +47,7 @@ add_executable( ArmyChess
 
 target_link_libraries( ArmyChess
     Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::HttpServer
     gtest
     gtest_main
     gmock_main
