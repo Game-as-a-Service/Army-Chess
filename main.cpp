@@ -7,6 +7,7 @@
 #include "src/main/framework/ArmyChessController.hpp"
 
 
+
 int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
 
