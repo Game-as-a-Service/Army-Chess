@@ -7,5 +7,5 @@ TEST(FIRSTTEST, SUMTEST){
     int a = 10;
     int b = 15;
 
-    ASSERT_EQ(sum(a, b), a + b);
+    ASSERT_EQ(sum(a, b), 0);
 }
