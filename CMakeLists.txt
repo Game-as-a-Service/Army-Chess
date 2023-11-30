@@ -49,8 +49,7 @@ target_link_libraries( ArmyChess
     Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::HttpServer
     gtest
-    gtest_main
-    gmock_main
+    gmock
 )
 
 add_test(NAME ArmyChess COMMAND ArmyChess)
