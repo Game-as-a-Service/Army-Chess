@@ -1,0 +1,39 @@
+# 這個工作流程是為了在 Ubuntu 平台上運行 CMake 項目。
+name: CMake on Ubuntu
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 指定運行平台為 Ubuntu 的最新版本
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.4.3'
+        modules: 'qthttpserver qtwebsockets'
+
+    - name: Configure CMake
+      # 配置 CMake 在 'build' 子目錄中。CMAKE_BUILD_TYPE 只在使用單配置生成器（如 make）時需要。
+      run: |
+        cmake -B ${{ github.workspace }}/build \
+        -DCMAKE_BUILD_TYPE=Release \
+        -S ${{ github.workspace }}
+
+    - name: Build
+      # 使用給定配置構建程式。
+      run: cmake --build ${{ github.workspace }}/build
+
+    - name: Package
+      run: windeployqt ${{ github.workspace }}/build/Release/QtEndToEndProject.exe
+
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+          name: my-project-ubuntu
+          path: ${{ github.workspace }}/build

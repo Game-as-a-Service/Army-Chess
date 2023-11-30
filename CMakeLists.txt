@@ -37,10 +37,12 @@ set(TS_FILES ArmyChess_zh_TW.ts)
 file(GLOB_RECURSE HPPFILES "src/*.hpp")
 file(GLOB_RECURSE CPPFILES "src/*.cpp")
 file(GLOB_RECURSE MARKDOWNFILES "*.md")
+file(GLOB_RECURSE YMLFILES "*.yml")
 
 add_executable( ArmyChess
     ${HPPFILES}
     ${CPPFILES}
+    ${YMLFILES}
     ${MARKDOWNFILES}
     ${TS_FILES}
 )
