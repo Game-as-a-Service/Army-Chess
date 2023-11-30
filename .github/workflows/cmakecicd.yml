@@ -1,22 +1,34 @@
-name: CMake with Tests on Ubuntu
+# 这个工作流程是为了在 Ubuntu 平台上运行 CMake 项目。
+name: CMake on Ubuntu
 
-on: [push, pull_request]
+on:
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest  # 指定运行平台为 Ubuntu 的最新版本
 
     steps:
     - uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: sudo apt-get install -y <dependencies>
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.6.0'
+        modules: 'qthttpserver qtwebsockets'
 
     - name: Configure CMake
-      run: cmake -B ${{ github.workspace }}/build -DCMAKE_BUILD_TYPE=Release
+      # 配置 CMake 在 'build' 子目录中。CMAKE_BUILD_TYPE 只在使用单配置生成器（如 make）时需要。
+      run: |
+        cmake -B ${{ github.workspace }}/build \
+        -DCMAKE_BUILD_TYPE=Release \
+        -S ${{ github.workspace }}
 
     - name: Build
+      # 使用给定配置构建程序。
       run: cmake --build ${{ github.workspace }}/build
 
+    # 新增测试步骤
     - name: Run Tests
-      run: ctest -C Release --verbose
+      run: ctest --verbose --test-dir ${{ github.workspace }}/build
