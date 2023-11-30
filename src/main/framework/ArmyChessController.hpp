@@ -10,6 +10,7 @@ public:
     auto helloworld() -> QString;
     auto addNumber(int a, int b) -> QString;
 
+
 private:
     QHttpServer server;
 };
