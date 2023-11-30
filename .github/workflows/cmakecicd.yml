@@ -30,10 +30,10 @@ jobs:
       run: cmake --build ${{ github.workspace }}/build
 
     - name: Package
-      run: windeployqt ${{ github.workspace }}/build/Release/QtEndToEndProject.exe
+      run: windeployqt ${{ github.workspace }}/build/Release/ArmyChess.exe
 
     - name: Upload
       uses: actions/upload-artifact@v3
       with:
           name: my-project-ubuntu
-          path: ${{ github.workspace }}/build
+          path: ${{ github.workspace }}/build/Release
