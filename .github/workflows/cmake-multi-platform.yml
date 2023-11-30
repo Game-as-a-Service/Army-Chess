@@ -28,11 +28,11 @@ jobs:
         c_compiler: [mingw-64]
         include:
           - os: windows-latest
-            c_compiler: gcc
-            cpp_compiler: g++
+            c_compiler: mingw-64
+            cpp_compiler: mingw-64
           - os: ubuntu-latest
-            c_compiler: gcc
-            cpp_compiler: g++
+            c_compiler: mingw-64
+            cpp_compiler: mingw-64
 
 
     steps:
