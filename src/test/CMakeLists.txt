@@ -1,3 +1,5 @@
+enable_testing()
+
 file(GLOB_RECURSE TESTCPPFILES
     "./*.cpp"
     "../main/sum/*.cpp"
