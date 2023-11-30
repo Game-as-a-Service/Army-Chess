@@ -34,8 +34,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
 
 set(TS_FILES ArmyChess_zh_TW.ts)
 
-file(GLOB_RECURSE HPPFILES "*.hpp")
-file(GLOB_RECURSE CPPFILES "*.cpp")
+file(GLOB_RECURSE HPPFILES "src/*.hpp")
+file(GLOB_RECURSE CPPFILES "src/*.cpp")
 file(GLOB_RECURSE MARKDOWNFILES "*.md")
 
 add_executable( ArmyChess
