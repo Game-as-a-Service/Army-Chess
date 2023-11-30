@@ -2,7 +2,7 @@
 
 #include <QLocale>
 #include <QTranslator>
-#include "main/framework/ArmyChessController.hpp"
+#include "framework/ArmyChessController.hpp"
 
 int main(int argc, char *argv[]) {
     QCoreApplication a(argc, argv);
