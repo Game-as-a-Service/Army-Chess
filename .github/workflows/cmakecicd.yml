@@ -32,3 +32,9 @@ jobs:
     # 新增测试步骤
     - name: Run Tests
       run: ctest --verbose --test-dir ${{ github.workspace }}/build
+
+    - name: List build directory
+      run: ls -al ${{ github.workspace }}/build
+
+    - name: List test files
+      run: find ${{ github.workspace }} -name "*.cpp"
