@@ -31,7 +31,5 @@ jobs:
 
     # 新增测试步骤
     - name: Run Tests
-      run: ctest --verbose --test-dir ${{ github.workspace }}/build
+      run: ctest --verbose --test-dir ${{ github.workspace }}/build/src/test
 
-    - name: List contents of Testing/Temporary directory
-      run: ls -al ${{ github.workspace }}/build/src

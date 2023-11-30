@@ -15,7 +15,3 @@ target_link_libraries(Tests gtest gmock)
 # 添加测试
 include(GoogleTest)
 gtest_discover_tests(Tests)
-
-foreach(_file ${TESTCPPFILES})
-    message(STATUS "Test file: ${_file}")
-endforeach()
