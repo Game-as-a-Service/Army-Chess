@@ -33,11 +33,5 @@ jobs:
     - name: Run Tests
       run: ctest --verbose --test-dir ${{ github.workspace }}/build
 
-    - name: List Testing directory
-      run: ls -al ${{ github.workspace }}/build/Testing
-
-    - name: List bin directory
-      run: ls -al ${{ github.workspace }}/build/bin
-
-    - name: Run test executable directly
-      run: ${{ github.workspace }}/build/bin/Tests
+    - name: List contents of Testing/Temporary directory
+      run: ls -al ${{ github.workspace }}/build/src
