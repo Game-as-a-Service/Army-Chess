@@ -4,7 +4,7 @@
 
 #include <QLocale>
 #include <QTranslator>
-#include "src/main/framework/ArmyChessController.hpp"
+#include "main/framework/ArmyChessController.hpp"
 
 
 
