@@ -3,9 +3,10 @@
 
 #include "../main/sum/sum.hpp"
 
-TEST(FIRSTTEST, SUMTEST){
-    int a = 10;
-    int b = 15;
-
-    ASSERT_EQ(sum(a, b), a + b);
+TEST(MyFirstTest, SumTest){
+    int aa = 1;
+    int b = 2;
+    int c = 3;
+    int d = aa + b + c;
+    ASSERT_EQ(sum(aa, b, c), d);
 }
